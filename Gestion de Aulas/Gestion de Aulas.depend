@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1729728516 source:c:\users\gerar\documents\codeblocks\gestion de aulas\main.cpp
+	<iostream>
+	"rlutil.h"
+	<cstring>
+	<ctime>
+	"Declaraciones.h"
+	"clsDias.h"
+	"Cadena.h"
+	"clsAula.h"
+	"clsPersona.h"
+	"clsUsuario.h"
+	"clsAdministrador.h"
+	"clsComision.h"
+	"clsDepartamento.h"
+	"Funciones.h"
+	"Paginas_Menus.h"
+
+1723567937 c:\users\gerar\documents\codeblocks\gestion de aulas\clsaula.h
+
+1720458067 c:\users\gerar\documents\codeblocks\gestion de aulas\clsdias.h
+
+1720212636 c:\users\gerar\documents\codeblocks\gestion de aulas\cadena.h
+
+1724025876 c:\users\gerar\documents\codeblocks\gestion de aulas\clspersona.h
+
+1727051308 c:\users\gerar\documents\codeblocks\gestion de aulas\clsusuario.h
+
+1724025938 c:\users\gerar\documents\codeblocks\gestion de aulas\clsadministrador.h
+
+1729725284 c:\users\gerar\documents\codeblocks\gestion de aulas\clsdepartamento.h
+
+1723418007 c:\users\gerar\documents\codeblocks\gestion de aulas\clscomision.h
+
+1722035299 c:\users\gerar\documents\codeblocks\gestion de aulas\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1724545553 c:\users\gerar\documents\codeblocks\gestion de aulas\paginas_menus.h
+
+1724545553 c:\users\gerar\documents\codeblocks\gestion de aulas\funciones.h
+
+1722873494 c:\users\gerar\documents\codeblocks\gestion de aulas\funciones.cpp
+
+1722874187 c:\users\gerar\documents\codeblocks\gestion de aulas\declaraciones.h
+
