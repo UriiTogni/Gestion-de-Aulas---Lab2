@@ -4,268 +4,313 @@
 void Ingreso(), SelectorMenu(Usuario obj), IngresoAdmin();
 void Becado(Usuario obj), Docente(Usuario obj), Director(Usuario obj), Admin(Administrador obj);
 
-void Ingreso()
-{
+void Ingreso() {
+    int width, length;
+    getSizeScreen(width, length);
+
     int legajo;
     Usuario obj, aux;
     ArchUsuario archU;
     bool encontro = false;
 
+
+    while(!encontro) {
+
     system("cls");
-    locate(72, 4);
-    cout << "Ingresando al SysadAulas";
-    locate(71, 6);
-    cout << "legajo:";
-    locate(79, 6);
+
+    char text []="Ingresando al SysadAulas";
+    int midWidth = (width-strlen(text))/2; //       Centra el texto dependiendo el tamaño del primer texto de ese menu
+    int midLegth = ((length)/2);           //
+
+    locate(midWidth, midLegth-3);
+    cout << text;
+
+    locate(midWidth, midLegth);
+    char  text2 []="Legajo:";
+    cout << text2;
+
+    locate(midWidth+sizeof(text2), midLegth);
     cin >> legajo;
+
+    system("cls");
 
     obj.setEstado(false);
 
-    int tam = archU.contarRegistros();
-    for(int i = 0; i < tam; i++)
-    {
-        aux = archU.leerRegistro(i);
-        if(aux.getLegajo() == legajo && aux.getLegajo() != 0)
-        {
-            obj = aux;
-            encontro = true;
 
-            if(obj.getEstado()){ SelectorMenu(obj); }
-            else
-            {
-                locate(75, 9);
-                cout << "INGRESE NUEVAMENTE!!!";
-                locate(70, 10);
-                cout << "Legajo dado de baja";
-                system("pause");
+        int tam = archU.contarRegistros();
+        for(int i = 0; i < tam; i++) {
+            aux = archU.leerRegistro(i);
+            if(aux.getLegajo() == legajo && aux.getLegajo() != 0) {
+                obj = aux;
+                encontro = true;
+
+                if(obj.getEstado()) {
+                    SelectorMenu(obj);
+                } else {
+                    locate(midWidth, midLegth-2);
+                    cout << "INGRESE NUEVAMENTE!!!";
+                    locate(midWidth, midLegth);
+                    cout << "Legajo dado de baja";
+                    system("pause>nul");
+                }
             }
         }
-    }
 
-    if(!encontro)
-    {
-        locate(75, 9);
-        cout << "INGRESE NUEVAMENTE!!!";
-        locate(70, 10);
-        cout << "El Legajo no figura en el sistema";
-        system("pause");
+        if(!encontro) {
+            locate(midWidth, midLegth-2);
+            cout << "INGRESE NUEVAMENTE!!!";
+            locate(midWidth, midLegth);
+            cout << "El Legajo no figura en el sistema"<< '\n';
+
+            locate(midWidth, midLegth+2);
+            system("pause>nul");
+        }
     }
 }
 
-void SelectorMenu(Usuario obj)
-{
-    system("cls");
-    locate(70, 8);
-    cout << "Hola " << obj.getNombre();
-    locate(70, 9);
-    cout << "Yendo al menu de acuerdo a su puesto como " <<obj.getRol();
-    locate(70, 10);
-    system("pause");
+void SelectorMenu(Usuario obj) {
+    int width, length;
+    getSizeScreen(width, length);
+
     system("cls");
 
-    if(strcmp(obj.getRol(), "Becado")==0)
-    {
+    char text[]="Hola ";
+    int midWidth = (width-(strlen(text)+strlen(obj.getNombre())))/2.5;
+    int midLength = length/2;
+
+    locate(midWidth, midLength-2);
+    cout<< text << obj.getNombre();
+
+    locate(midWidth, midLength);
+    cout << "Yendo al menu de acuerdo a su puesto como " <<obj.getRol();
+
+    locate(midWidth, midLength+1);
+    system("pause>nul");
+    system("cls");
+
+    if(strcmp(obj.getRol(), "Becado")==0) {
         Becado(obj);
-    }
-    else if(strcmp(obj.getRol(), "Docente")==0)
-    {
+    } else if(strcmp(obj.getRol(), "Docente")==0) {
         Docente(obj);
-    }
-    else if(strcmp(obj.getRol(), "Director")==0)
-    {
+    } else if(strcmp(obj.getRol(), "Director")==0) {
         Director(obj);
     }
 }
 
-void Becado(Usuario obj) //Ver aulas, ver comisiones y pedir cambios
-{
+void Becado(Usuario obj) { //Ver aulas, ver comisiones y pedir cambios
     int op;
 
-    locate(70, 8);
-    cout << "Bienvenido " << obj.getNombre();
-    locate(70, 10);
+    int width, length;
+    getSizeScreen(width,length);
+    char text[]="Bienvenido ";
+    int midWidth = (width-(strlen(text)+strlen(obj.getNombre())))/2;
+    int midLength = length/2;
+    locate(midWidth, midLength-6);
+    cout <<  text << obj.getNombre();
+
+    locate(midWidth,midLength-4);
     cout << "1. Ver las Aulas";
-    locate(70, 11);
+    locate(midWidth, midLength-3);
     cout << "2. Ver las Comisiones del Departamento";
-    locate(70, 12);
+    locate(midWidth, midLength-2);
     cout << "3. Pedir Cambios de Aulas"; //Generar arch Cambios?
-    locate(70, 14);
+    locate(midWidth, midLength-1);
     cout << "0. Cerrar Sesion";
 
-    locate(70, 16);
+    locate(midWidth, midLength+1);
     cout << "Ingrese una opcion: ";
-    locate(90, 16);
+    locate(midWidth, midLength+2);
     cin >> op;
 
-    switch(op)
-    {
-        case 1:
-            verAulas();
+    switch(op) {
+    case 1:
+        verAulas();
         break;
-        case 2:
-            verComisiones(obj.getCodDep());
+    case 2:
+        verComisiones(obj.getCodDep());
         break;
 
-        case 0:
-            cout << "Volviendo al menu";
-            system("pause");
-            return;
+    case 0:
+        locate(midWidth,midLength+4);
+        cout << "Volviendo al menu";
+        system("pause>nul");
+        return;
     }
 }
 
-void Docente(Usuario obj) //Ver aulas, info del departamento y ver las comisiones en las que da clases
-{
+void Docente(Usuario obj) { //Ver aulas, info del departamento y ver las comisiones en las que da clases
     int op;
 
-    locate(70, 8);
-    cout << "Bienvenido " << obj.getNombre();
-    locate(70, 10);
+    int width, length;
+    getSizeScreen(width,length);
+    char text[]="Bienvenido ";
+    int midWidth = (width-(strlen(text)+strlen(obj.getNombre())))/2;
+    int midLength = length/2;
+    locate(midWidth, midLength-6);
+    cout <<  text << obj.getNombre();
+
+    locate(midWidth, midLength-4);
     cout << "1. Ver las Aulas";
-    locate(70, 11);
+    locate(midWidth, midLength-3);
     cout << "2. Ver sus Comisiones";
-    locate(70, 12);
+    locate(midWidth, midLength-2);
     cout << "3. Ver informacion del Departamento";
-    locate(70, 13);
+    locate(midWidth, midLength-1);
     cout << "0. Cerrar Sesion";
-    locate(70, 16);
+    locate(midWidth, midLength+1);
     cout << "Ingrese una opcion: ";
-    locate(90, 16);
+    locate(midWidth, midLength+2);
     cin >> op;
 
-    switch(op)
-    {
-        case 1:
-            verAulas();
+    switch(op) {
+    case 1:
+        verAulas();
         break;
-        case 2:
-            verComisiones(obj.getNombre());
+    case 2:
+        verComisiones(obj.getNombre());
         break;
-        case 3:
-            verInfoDep(obj.getCodDep());
+    case 3:
+        verInfoDep(obj.getCodDep());
         break;
-        case 0:
-            cout << "Volviendo al menu";
-            system("pause");
-            return;
+    case 0:
+        locate(midWidth,midLength+4);
+        cout << "Volviendo al menu";
+        system("pause>nul");
+        return;
     }
 }
 
-void Director(Usuario obj) //Ver Aulas, ver comisiones, dar de alta y baja a becados
-{
+void Director(Usuario obj) { //Ver Aulas, ver comisiones, dar de alta y baja a becados
     int op;
 
-    locate(70, 8);
-    cout << "Bienvenido " << obj.getNombre();
-    locate(70, 10);
+    int width, length;
+    getSizeScreen(width,length);
+    char text[]="Bienvenido ";
+    int midWidth = (width-(strlen(text)+strlen(obj.getNombre())))/2;
+    int midLength = length/2;
+    locate(midWidth, midLength-6);
+    cout <<  text << obj.getNombre();
+
+    locate(midWidth, midLength-4);
     cout << "1. Ver las Aulas";
-    locate(70, 11);
+    locate(midWidth, midLength-3);
     cout << "2. Agregar a un Becado al Departamento";
-    locate(70, 12);
+    locate(midWidth, midLength-2);
     cout << "3. Dar de Baja a un Becado del Departamento";
-    locate(70, 13);
+    locate(midWidth, midLength-1);
     cout << "4. Ver las Comisiones del departamento";
-    locate(70, 14);
+    locate(midWidth, midLength);
     cout << "5. Ver informacion del Departamento";
-    locate(70, 16);
+    locate(midWidth, midLength+1);
     cout << "0. Cerrar Sesion";
+    locate(midWidth, midLength+3);
     cout << "Ingrese una opcion: ";
-    locate(90, 16);
+    locate(midWidth, midLength+4);
     cin >> op;
 
-    switch(op)
-    {
-        case 1:
-            verAulas();
+    switch(op) {
+    case 1:
+        verAulas();
         break;
-        case 2:
-            darAlta(obj.getCodDep(), "Becado");
+    case 2:
+        darAlta(obj.getCodDep(), "Becado");
         break;
-        case 3:
-            darBaja(obj.getCodDep(), "Becado");
+    case 3:
+        darBaja(obj.getCodDep(), "Becado");
         break;
-        case 4:
-            verComisiones(obj.getCodDep());
+    case 4:
+        verComisiones(obj.getCodDep());
         break;
-        case 5:
-            verInfoDep(obj.getCodDep());
+    case 5:
+        verInfoDep(obj.getCodDep());
         break;
-        case 0:
-            cout << "Volviendo al menu";
-            system("pause");
-            return;
+    case 0:
+        locate(midWidth,midLength+6);
+        cout << "Volviendo al menu";
+        system("pause>nul");
+        return;
     }
 }
 
-void IngresoAdmin()
-{
+void IngresoAdmin() {
     Administrador obj;
     ArchAdm archA;
     char contrasenia[30];
-
     system("cls");
-    locate(72, 4);
-    cout << "Ingresando al SysadAulas";
-    locate(71, 6);
+
+    int width, length;
+    getSizeScreen(width,length);
+    char text[]="Ingresando al SysadAulas";
+    int midWidth = (width-(strlen(text)))/2;
+    int midLength = length/2;
+
+    locate(midWidth, midLength-2);
+    cout<<text;
+
+    locate(midWidth, midLength-1);
     cout << "contrasenia: ";
-    locate(84, 6);
+    locate(midWidth, midLength);
     cargarCadena(contrasenia, 29);
 
     int tam = archA.contarRegistros();
-    for(int i=0; i<tam; i++)
-    {
+    for(int i=0; i<tam; i++) {
         obj = archA.leerRegistro(i);
-        if(strcmp(obj.getConstrasenia(), contrasenia) == 0)
-        {
-            locate(70, 8);
+        if(strcmp(obj.getConstrasenia(), contrasenia) == 0) {
+            locate(midWidth, midLength-1);
             cout << "Hola " << obj.getNombre();
-            locate(70, 9);
+            locate(midWidth, midLength);
             cout << "Yendo al menu de administrador ";
             Admin(obj);
         }
     }
 }
 
-void Admin(Administrador obj) //Ver comisiones, confirmar cambios, dar de alta, baja y ver aulas
-{
+void Admin(Administrador obj) { //Ver comisiones, confirmar cambios, dar de alta, baja y ver aulas
     int opcion;
-    while(true)
-    {
-        system("pause");
+    while(true) {
+        system("pause>nul");
         system("cls");
-        locate(70, 8);
-        cout << "Bienvenido " << obj.getNombre();
-        locate(70, 10);
+
+        int width, length;
+        getSizeScreen(width,length);
+        char text[]="Bienvenido ";
+        int midWidth = (width-(strlen(text)+strlen(obj.getNombre())))/2;
+        int midLength = length/2;
+        locate(midWidth, midLength-6);
+        cout <<  text << obj.getNombre();
+
+        locate(midWidth, midLength-4);
         cout << "1. Ver/Modificar las Aulas"; //Modificar = hacer/Confirmar cambios, dar de baja y alta
-        locate(70, 11);
+        locate(midWidth, midLength-3);
         cout << "2. Ver las todas las Comisiones";
-        locate(70, 12);
+        locate(midWidth, midLength-2);
         cout << "3. Dar de baja a Usuarios";
-        locate(70, 13);
+        locate(midWidth, midLength-1);
         cout << "4. Dar de alta a Usuarios";
-        locate(70, 15);
+        locate(midWidth, midLength);
         cout << "0. Cerrar Sesion";
-        locate(70, 17);
+        locate(midWidth, midLength+2);
         cout << "Ingrese la opcion: ";
-        locate(78, 15);
+        locate(midWidth, midLength+3);
         cin >> opcion;
 
-        switch(opcion)
-        {
-            case 1:
+        switch(opcion) {
+        case 1:
 
             break;
-            case 2:
-                allComisiones();
+        case 2:
+            allComisiones();
             break;
-            case 3:
-                darBaja();
+        case 3:
+            darBaja();
             break;
-            case 4:
-                darAlta();
+        case 4:
+            darAlta();
             break;
-            case 0:
+        case 0:
+            locate(midWidth,midLength+4);
             cout << "Volviendo al menu";
-            system("pause");
+            system("pause>nul");
             return;
         }
     }

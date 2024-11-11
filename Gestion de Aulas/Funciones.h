@@ -9,7 +9,7 @@ Departamento buscarDep(int Cod);
 void allComisiones(), darBaja(int legajo), darAlta(int dni);
 int verificarUsuario(int dni);
 
-void darAlta(const char *rol="Becado"), darBaja(int cod, int legajo, const char *rol);
+void darBaja(int cod, int legajo, const char *rol);
 
 void allComisiones()    //  SOLO COMISIONES ACTIVAS
 {
@@ -36,6 +36,7 @@ int verificarUsuario(int dni)
 
 void darAlta()          //  Buscar por Dni
 {
+    int dni;
     cout << "Ingrese el Dni de la persona: ";
     cin >> dni;
     cout << endl;
@@ -62,7 +63,7 @@ void darBaja() //buscar por Legajo
 {
     Usuario obj;
     ArchUsuario arch;
-
+    int legajo;
     cout << "Ingrese el legajo de la persona: ";
     cin >> legajo;
 
@@ -88,6 +89,7 @@ void darBaja(int cod, const char *rol) //buscar por Legajo
 {
     Usuario obj;
     ArchUsuario arch;
+    int legajo;
 
     cout << "Ingrese el legajo de la persona: ";
     cin >> legajo;
@@ -265,5 +267,19 @@ void PedirCambios(int CodDep) /// Vector Dinamico, ingresar el nombre del aula y
     }
 }
 
+void getSizeScreen(int &x, int &y) // Te devuelve el ancho y largo de la terminal a traves de los parametros
+{
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    int columns, rows;
+
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+    columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+    rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+
+    x= columns;
+    y=rows;
+
+    return;
+}
 
 #endif // FUNCIONES_H_INCLUDED

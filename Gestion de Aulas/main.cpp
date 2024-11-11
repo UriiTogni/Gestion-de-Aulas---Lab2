@@ -2,6 +2,7 @@
 #include "rlutil.h"
 #include <cstring>
 #include <ctime>
+#include <windows.h>
 
 using namespace std;
 using namespace rlutil;
@@ -29,6 +30,7 @@ IngresoAdmin();         ///LOGUEO ADMIN
 int main()
 {
     IngresoAdmin();
+    //Ingreso();
 
     return 0;
 }
