@@ -7,9 +7,7 @@
 using namespace std;
 using namespace rlutil;
 
-#include "Declaraciones.h"
 #include "clsDias.h"
-#include "Cadena.h"
 #include "clsAula.h"
 #include "clsPersona.h"
 #include "clsUsuario.h"
@@ -18,6 +16,7 @@ using namespace rlutil;
 #include "clsDepartamento.h"
 #include "Funciones.h"
 #include "Paginas_Menus.h"
+#include "Cadena.h"
 
 
 /**
@@ -29,8 +28,8 @@ IngresoAdmin();         ///LOGUEO ADMIN
 
 int main()
 {
-    IngresoAdmin();
-    //Ingreso();
+    //IngresoAdmin();
+    Ingreso();
 
     return 0;
 }
