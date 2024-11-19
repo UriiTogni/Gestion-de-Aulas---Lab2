@@ -7,8 +7,8 @@
 class Usuario : public Persona{
 private:
     int legajo, codDepartamento, numero;
-    char rol[9], mail[45]; //BORRAR LECTURA Y ESCRITURA
-    bool estado, lectura=true, escritura=false;
+    char rol[9], mail[45];
+    bool estado;
 
 public:
     Usuario(const char *r="", const char *m="", int l=0, int c=0, bool e=false, int num=1)
@@ -28,9 +28,7 @@ public:
     void setCodDep(int c){codDepartamento = c;}
     int getCodDep(){return codDepartamento;}
     bool getEstado(){return estado;}
-    bool getEscritura(){return escritura;}
     const char *getMail(){return mail;}
-    bool getLectura(){return lectura;}
     const char *getRol(){return rol;}
     int getNumero(){return numero;}
     int getLegajo(){return legajo;}
@@ -59,15 +57,16 @@ public:
         strcpy(rol, puesto);
         estado = true;
     }
-    void Mostrar()
+    void Mostrar(int x = 0, int y = 0)
     {
         if(estado)
         {
-            Mostrar_Persona();
-            cout << "Legajo: " << legajo << endl;
-            cout << "Codigo de Departamento: " << codDepartamento << endl;
-            cout << "Rol: " << rol << endl;
-            cout << "Mail: " << mail << endl;
+            Mostrar_Persona(x, y);
+            y +=4;
+            locate(x, y); cout << "Legajo: " << legajo << endl;
+            locate(x, 2+y); cout << "Codigo de Departamento: " << codDepartamento << endl;
+            locate(x, 3+y); cout << "Rol: " << rol << endl;
+            locate(x, 4+y); cout << "Mail: " << mail << endl;
         }
     }
 };
@@ -76,7 +75,7 @@ class ArchUsuario{
     private:
         char nombre[30];
     public:
-        ArchUsuario(const char *n="usuario.dat"){strcpy(nombre, n);}
+        ArchUsuario(const char *n="usuarios.dat"){strcpy(nombre, n);}
         Usuario leerRegistro(int pos);
         void grabarRegistro(Usuario obj);
         void modificarRegistro(Usuario obj, int pos);
@@ -155,7 +154,7 @@ int ArchUsuario::contarRegistros(){
     fseek(p, 0, 2);
     int cant=ftell(p);
     fclose(p);
-    return cant/sizeof(Aula);
+    return cant/sizeof(Usuario);
 }
 
 void Alta_Usuarios(int dni)

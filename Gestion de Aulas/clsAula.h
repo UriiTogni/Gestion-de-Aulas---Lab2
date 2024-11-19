@@ -18,24 +18,21 @@ public:
         estado = e;
         llave = l;
     }
-    void setDeparLlave(const char *d){strcpy(deparLlave, d);}
     void setDisponibilidad(bool d){disponibilidad = d;}
     void setNombre(const char *n){strcpy(nombre,n);}
     void setCapacidad(int c){capacidad = c;}
     void setEstado(bool e){estado = e;}
     void setNumero(int n){numero = n;}
-    void setLlave(bool l){llave = l;}
     bool getDisponibilidad(){return disponibilidad;}
     const char *getDeparLlave(){return deparLlave;}
     const char *getNombre(){return nombre;}
     int getCapacidad(){return capacidad;}
     bool getEstado(){return estado;}
     int getNumero(){return numero;}
-    bool getLlave(){return llave;}
-    void Cargar()
+
+    void Cargar(const char *_nombre)
     {
-        cout << "Ingrese el nombre: ";
-        cargarCadena(nombre, 4);
+        strcpy(nombre, _nombre);
         cout << "Ingrese la capacidad: ";
         cin >> capacidad;
         cout << "Se cierra con llave? 1 = si // 0 = no: ";
@@ -47,9 +44,9 @@ public:
         }
         estado = true;
     }
-    void Mostrar()
+    void Mostrar(int x=0, int y=0)
     {
-        if(!estado){cout << "NO SE PUEDE UTILIZAR, AULA DADA DE BAJA" << endl;}
+        if(!estado){setColor(4);cout << "NO SE PUEDE UTILIZAR, AULA DADA DE BAJA" << endl;setColor(0);}
 
         cout << "El aula es: " << nombre << endl;
         cout << "Cuenta con una capacidad de: " << capacidad << " bancos" << endl;
@@ -59,11 +56,17 @@ public:
         if(disponibilidad){cout << "Esta disponible" << endl;}
         else{cout << "Esta ocupada" << endl;}
     }
-    void Mostrar_Peticion()
+    void Mostrar_Peticion(int x = 0, int y = 0)
     {
+        locate(x, y);
         cout << "El aula " << nombre << " tiene " << capacidad << " bancos. ";
-        if(disponibilidad){cout << "Esta disponible" << endl;}
-        else{cout << "No esta disponible" << endl;}
+        if(estado)
+        {
+            if(disponibilidad){setColor(2);cout << "Esta disponible" << endl;} //Color verde
+            else{setColor(4);cout << "No esta disponible" << endl;} //Color rojo
+            setColor(0);
+        }
+        else{cout << "DADA DE BAJA!!" << endl;} //Color rojo
     }
 };
 
@@ -151,6 +154,15 @@ int ArchAula::contarRegistros(){
     int cant=ftell(p);
     fclose(p);
     return cant/sizeof(Aula);
+}
+
+void Alta_Aulas(const char *nombre)
+{
+    Aula obj;
+    ArchAula arch;
+
+    obj.Cargar(nombre);
+    arch.grabarRegistro(obj);
 }
 
 #endif // CLSAULA_H_INCLUDED

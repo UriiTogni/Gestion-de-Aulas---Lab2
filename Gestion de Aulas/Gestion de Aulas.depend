@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1729728516 source:c:\users\gerar\documents\codeblocks\gestion de aulas\main.cpp
+1731960457 source:c:\users\gerar\documents\codeblocks\gestion de aulas\main.cpp
 	<iostream>
 	"rlutil.h"
 	<cstring>
@@ -13,24 +13,25 @@
 	"clsAdministrador.h"
 	"clsComision.h"
 	"clsDepartamento.h"
+	"clsPeticion.h"
 	"Funciones.h"
 	"Paginas_Menus.h"
 
-1723567937 c:\users\gerar\documents\codeblocks\gestion de aulas\clsaula.h
+1731861872 c:\users\gerar\documents\codeblocks\gestion de aulas\clsaula.h
 
 1720458067 c:\users\gerar\documents\codeblocks\gestion de aulas\clsdias.h
 
 1720212636 c:\users\gerar\documents\codeblocks\gestion de aulas\cadena.h
 
-1724025876 c:\users\gerar\documents\codeblocks\gestion de aulas\clspersona.h
+1731800657 c:\users\gerar\documents\codeblocks\gestion de aulas\clspersona.h
 
-1727051308 c:\users\gerar\documents\codeblocks\gestion de aulas\clsusuario.h
+1731859897 c:\users\gerar\documents\codeblocks\gestion de aulas\clsusuario.h
 
-1724025938 c:\users\gerar\documents\codeblocks\gestion de aulas\clsadministrador.h
+1731800725 c:\users\gerar\documents\codeblocks\gestion de aulas\clsadministrador.h
 
-1729725284 c:\users\gerar\documents\codeblocks\gestion de aulas\clsdepartamento.h
+1731887029 c:\users\gerar\documents\codeblocks\gestion de aulas\clsdepartamento.h
 
-1723418007 c:\users\gerar\documents\codeblocks\gestion de aulas\clscomision.h
+1731798740 c:\users\gerar\documents\codeblocks\gestion de aulas\clscomision.h
 
 1722035299 c:\users\gerar\documents\codeblocks\gestion de aulas\rlutil.h
 	<iostream>
@@ -46,11 +47,17 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1724545553 c:\users\gerar\documents\codeblocks\gestion de aulas\paginas_menus.h
+1731959961 c:\users\gerar\documents\codeblocks\gestion de aulas\paginas_menus.h
 
-1724545553 c:\users\gerar\documents\codeblocks\gestion de aulas\funciones.h
+1731962561 c:\users\gerar\documents\codeblocks\gestion de aulas\funciones.h
 
 1722873494 c:\users\gerar\documents\codeblocks\gestion de aulas\funciones.cpp
 
-1722874187 c:\users\gerar\documents\codeblocks\gestion de aulas\declaraciones.h
+1731338841 c:\users\gerar\documents\codeblocks\gestion de aulas\declaraciones.h
+
+1730815316 c:\users\gerar\documents\codeblocks\gestion de aulas\clsaula.cpp
+
+1730815316 source:c:\users\gerar\documents\codeblocks\gestion de aulas\clsaula.cpp
+
+1731960457 c:\users\gerar\documents\codeblocks\gestion de aulas\clspeticion.h
 

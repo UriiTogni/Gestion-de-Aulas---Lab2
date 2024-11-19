@@ -60,24 +60,24 @@ public:
             cout << "Aula: " << aula << endl;
         }
     }
-    void Mostrar_Becado()
+    void Mostrar_Becado(int x = 0, int y = 0)
     {
         if(estado)
         {
-            cout << "Codigo de la Comision: " << codComi << endl;
-            cout << "Cantidad de alumnos: " << cantidad << endl;
-            cout << "Docente a cargo: " << profe << endl;
-            cout << "Aula: " << aula << endl;
+            locate(x, y); cout << "Codigo de la Comision: " << codComi << endl;
+            locate(x, 1+y); cout << "Cantidad de alumnos: " << cantidad << endl;
+            locate(x, 2+y); cout << "Docente a cargo: " << profe << endl;
+            locate(x, 3+y); cout << "Aula: " << aula << endl;
         }
     }
-    void Mostrar_Docente()
+    void Mostrar_Docente(int x = 0, int y = 0)
     {
         if(estado)
         {
-            cout << "Codigo de la Comision: " << codComi << endl;
-            cout << "Codigo del Departamento: " << codDep << endl;
-            cout << "Cantidad de alumnos: " << cantidad << endl;
-            cout << "Aula: " << aula << endl;
+            locate(x, y); cout << "Codigo de la Comision: " << codComi << endl;
+            locate(x, 1+y); cout << "Codigo del Departamento: " << codDep << endl;
+            locate(x, 2+y); cout << "Cantidad de alumnos: " << cantidad << endl;
+            locate(x, 3+y); cout << "Aula: " << aula << endl;
         }
     }
 };
@@ -165,6 +165,6 @@ int ArchComision::contarRegistros(){
     fseek(p, 0, 2);
     int cant=ftell(p);
     fclose(p);
-    return cant/sizeof(Aula);
+    return cant/sizeof(Comision);
 }
 #endif // CLSCOMISION_H_INCLUDED

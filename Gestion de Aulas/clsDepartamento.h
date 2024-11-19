@@ -8,7 +8,7 @@ class Departamento{
 private:
     char nombre[10];
     int codigo, numero;
-    bool estado, lectura=true, escritura=false;
+    bool estado;
 
 public:
     Departamento(int c=0, const char *n="", bool e=false, int nu=1)
@@ -23,8 +23,6 @@ public:
     void setNumero(int n){numero = n;}
     void setCodigo(int c){codigo = c;}
     const char *getNombre(){return nombre;}
-    bool getEscritura(){return escritura;}
-    bool getLectura(){return lectura;}
     bool getEstado(){return estado;}
     int getNumero(){return numero;}
     int getCodigo(){return codigo;}
@@ -46,13 +44,14 @@ public:
             cout << "El nombre del departamento: " << nombre << endl;
         }
     }
-    void MostrarTodo()
+    void MostrarTodo(int x = 0, int y = 0)
     {
         if(estado)
         {
-            cout << "El codigo del departamento: " << codigo << endl;
-            cout << "El nombre del departamento: " << nombre << endl;
-            mostrarDepCompleto(codigo);
+            locate(x, y); cout << "El codigo del departamento: " << codigo << endl;
+            locate(x, 1+y); cout << "El nombre del departamento: " << nombre << endl;
+            y+= 2;
+            mostrarDepCompleto(codigo, x, y);
         }
     }
 };
@@ -140,7 +139,7 @@ int ArchDep::contarRegistros(){
     fseek(p, 0, 2);
     int cant=ftell(p);
     fclose(p);
-    return cant/sizeof(Aula);
+    return cant/sizeof(Departamento);
 }
 
 

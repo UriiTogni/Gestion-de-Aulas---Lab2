@@ -15,6 +15,7 @@ using namespace rlutil;
 #include "clsAdministrador.h"
 #include "clsComision.h"
 #include "clsDepartamento.h"
+#include "clsPeticion.h"
 #include "Funciones.h"
 #include "Paginas_Menus.h"
 
@@ -28,7 +29,9 @@ IngresoAdmin();         ///LOGUEO ADMIN
 
 int main()
 {
-    IngresoAdmin();
+    Login();
 
     return 0;
 }
+
+

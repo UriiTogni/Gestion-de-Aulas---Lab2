@@ -8,7 +8,7 @@ class Administrador : public Persona{
 private:
     int codigo, numero;
     char mail[45], contrasenia[30];
-    bool estado, lectura=true, escritura=true;
+    bool estado;
 
 public:
     Administrador(const char *m="", const char *c="", bool e=false, int n=1, int co=1)
@@ -22,20 +22,16 @@ public:
     void setContrasenia(const char *c){strcpy(contrasenia, c);}
     void setMail(const char *m){strcpy(mail, m);}
     void setEstado(bool e){estado = e;}
-    void setEscritura(bool e){escritura = e;}
-    void setLectura(bool l){lectura = l;}
     void setCodigo(int c){codigo = c;}
     void setNumero(int n){numero = n;}
     const char *getConstrasenia(){return contrasenia;}
     bool getEstado(){return estado;}
-    bool getEscritura(){return escritura;}
     const char *getMail(){return mail;}
-    bool getLectura(){return lectura;}
     int getCodigo(){return codigo;}
     int getNumero(){return numero;}
-    void Cargar(int dni)
+    void Cargar()
     {
-        Cargar_Persona(dni);
+        Cargar_Persona();
         cout << "Ingrese el mail: ";
         cargarCadena(mail, 44);
         cout << "Ingrese la contrasenia: ";
@@ -46,7 +42,7 @@ public:
     {
         if(estado)
         {
-            Mostrar_Persona();
+            //Mostrar_Persona();
             cout << "Mail: " << mail << endl;
             cout << "Contrasenia: " << contrasenia << endl;
         }
@@ -137,7 +133,16 @@ int ArchAdm::contarRegistros(){
     fseek(p, 0, 2);
     int cant=ftell(p);
     fclose(p);
-    return cant/sizeof(Aula);
+    return cant/sizeof(Administrador);
+}
+
+void Alta_Admi()
+{
+    Administrador obj;
+    ArchAdm arch;
+
+    obj.Cargar();
+    arch.grabarRegistro(obj);
 }
 
 #endif // CLSADMINISTRADOR_H_INCLUDED

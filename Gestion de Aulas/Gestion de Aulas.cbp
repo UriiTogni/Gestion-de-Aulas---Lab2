@@ -37,6 +37,7 @@
 		<Unit filename="Funciones.h" />
 		<Unit filename="Paginas_Menus.h" />
 		<Unit filename="clsAdministrador.h" />
+		<Unit filename="clsAula.cpp" />
 		<Unit filename="clsAula.h" />
 		<Unit filename="clsComision.h" />
 		<Unit filename="clsDepartamento.h" />
@@ -44,6 +45,9 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="clsPersona.h" />
+		<Unit filename="clsPeticion.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="clsUsuario.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="rlutil.h" />
