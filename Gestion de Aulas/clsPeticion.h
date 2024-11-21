@@ -48,8 +48,8 @@ public:
         cout << "Aula asignada anteriormente: " << asignada << endl;
         cout << "Aula solicitada por el departamento: " << pedida << endl;
         cout << "Cantidad de estudiantes: " << cant << endl;
-        if(visto){setColor(1); cout << "El Administrador dijo: " << respuesta << endl; setColor(0);}
-        else{setColor(4); cout << "Falta Confirmacion del Administrador" << endl; setColor(0);}
+        if(visto){setColor(1); cout << "El Administrador dijo: " << respuesta << endl;}
+        else{setColor(4); cout << "Falta Confirmacion del Administrador" << endl;}
         cout << endl;
     }
 

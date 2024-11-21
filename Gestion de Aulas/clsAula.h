@@ -59,12 +59,14 @@ public:
     void Mostrar_Peticion(int x = 0, int y = 0)
     {
         locate(x, y);
+
+        setColor(15);
         cout << "El aula " << nombre << " tiene " << capacidad << " bancos. ";
         if(estado)
         {
             if(disponibilidad){setColor(2);cout << "Esta disponible" << endl;} //Color verde
             else{setColor(4);cout << "No esta disponible" << endl;} //Color rojo
-            setColor(0);
+            setColor(15);
         }
         else{cout << "DADA DE BAJA!!" << endl;} //Color rojo
     }
