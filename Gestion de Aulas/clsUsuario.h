@@ -32,6 +32,18 @@ public:
     const char *getRol(){return rol;}
     int getNumero(){return numero;}
     int getLegajo(){return legajo;}
+    bool verificarDep(int codDep){
+        if(codDep == 240 || codDep == 890 || codDep == 660 || codDep == 450){
+            return true;
+        }
+        return false;
+    }
+    bool verificarRol(char* rol){
+        if(strcmp(rol,"Becado")==0 || strcmp(rol,"Docente")==0||strcmp(rol,"Director")==0){
+            return true;
+        }
+        return false;
+    }
 
     void Cargar(int dni)
     {
@@ -40,22 +52,36 @@ public:
         cin >> legajo;
         cout << "Ingrese el codigo del departamento: ";
         cin >> codDepartamento;
+        while(!verificarDep(codDepartamento)){
+            cout << "El departamento no existe! Ingrese otro codigo de departamento: ";
+            cin >> codDepartamento;
+        }
         cout << "Ingrese el rol (Becado, Docente o Director): ";
         cargarCadena(rol, 8);
+        while(!verificarRol(rol)){
+            cout << "El rol no existe! Ingrese otro rol: ";
+            cargarCadena(rol, 8);
+        }
         cout << "Ingrese el mail: ";
         cargarCadena(mail, 44);
+        setColor(1);
+        cout << "Usuario dado de alta ";
         estado = true;
     }
     void Cargar(int cod, int dni, const char *puesto)
     {
+
         Cargar_Persona(dni);
         cout << "Ingrese el numero de legajo: ";
         cin >> legajo;
         cout << "Ingrese el mail: ";
         cargarCadena(mail, 44);
-        codDepartamento = cod;
         strcpy(rol, puesto);
         estado = true;
+        setColor(1);
+        cout << "Usuario dado de alta ";
+        setColor(15);
+
     }
     void Mostrar(int x = 0, int y = 0)
     {

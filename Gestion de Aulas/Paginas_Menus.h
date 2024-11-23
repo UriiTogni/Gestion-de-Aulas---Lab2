@@ -3,24 +3,28 @@
 
 void Ingreso(), SelectorMenu(Usuario obj), IngresoAdmin(), Alerta(int x, int y), Login();
 void Becado(Usuario obj), Docente(Usuario obj), Director(Usuario obj), Admin(Administrador obj), Aulas(Administrador obj);
-int Opcion(int y);
+int Opcion(int x,int y);
 
 void Login() {
-    int op;
+    int op, totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
+
     while(true) {
         setColor(15);
         system("cls");
-        locate(70, 6);
+        locate(x, y-4);
         cout << "Ingresando al SysadAulas";
-        locate(70, 8);
+        locate(x, y-2);
         cout << "1. Usuario";
-        locate(70, 9);
+        locate(x, y-1);
         cout << "2. Administrador";
-        locate(70, 11);
+        locate(x, y+1);
         cout << "0. Cerrar Aplicacion";
 
-        op = Opcion(13);
-
+        op = Opcion(x,y+3);
         switch(op) {
         case 1:
             Ingreso();
@@ -32,7 +36,7 @@ void Login() {
             return;
             break;
         default:
-            Alerta(70, 15);
+            Alerta(x, y);
             break;
         }
     }
@@ -44,12 +48,17 @@ void Ingreso() {
     ArchUsuario archU;
     bool encontro = false;
 
+    int totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
+
     system("cls");
-    locate(71, 4);
+    locate(x, y-2);
     cout << "Ingresando al SysadAulas";
-    locate(71, 6);
-    cout << "legajo:";
-    locate(79, 6);
+    locate(x, y);
+    cout << "Legajo: ";
     cin >> legajo;
 
     if(legajo < 0) {
@@ -68,10 +77,10 @@ void Ingreso() {
             if(obj.getEstado()) {
                 SelectorMenu(obj);
             } else {
-                locate(75, 8);
+                locate(x, y-2);
                 setColor(4);
                 cout << "INGRESE NUEVAMENTE!!!";
-                locate(70, 10);
+                locate(x, y);
                 cout << "Legajo dado de baja";
                 system("pause>nul");
             }
@@ -79,10 +88,10 @@ void Ingreso() {
     }
 
     if(!encontro) {
-        locate(75, 8);
+        locate(x, y-2);
         setColor(4);
         cout << "INGRESE NUEVAMENTE!!!";
-        locate(70, 10);
+        locate(x, y);
         cout << "El Legajo no figura en el sistema";
         system("pause>nul");
     }
@@ -90,12 +99,17 @@ void Ingreso() {
 }
 
 void SelectorMenu(Usuario obj) {
+    int totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-44)/2;
+    int y = totalY/2;
+
     system("cls");
-    locate(70, 8);
+    locate(x+17, y-3);
     cout << "Hola " << obj.getNombre();
-    locate(70, 10);
+    locate(x, y-1);
     cout << "Yendo al menu de acuerdo a su puesto como " <<obj.getRol();
-    locate(70, 12);
     system("pause>nul");
     system("cls");
 
@@ -113,35 +127,40 @@ void Alerta(int x, int y) {
     locate(x, y);
     setColor(4);
     cout << "Opcion invalida!!!";
+    system("pause>nul");
     setColor(15);
 }
 
-int Opcion(int y) {
+int Opcion(int x,int y) {
     int op;
     setColor(1);
-    locate(70, y);
+    locate(x, y);
     cout << "Ingrese una opcion: ";
-    locate(90, y);
     cin >> op;
     setColor(15);
     return op;
 }
 
 void Becado(Usuario obj) { //Ver aulas, ver comisiones y pedir cambios
-    int op;
+    int op, totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
+
     while(true) {
-        locate(70, 8);
+        locate(x+7, y-4);
         cout << "Bienvenido " << obj.getNombre();
-        locate(70, 10);
+        locate(x, y-2);
         cout << "1. Ver las Aulas";
-        locate(70, 11);
+        locate(x, y-1);
         cout << "2. Ver las Comisiones del Departamento";
-        locate(70, 12);
+        locate(x, y);
         cout << "3. Pedir Cambios de Aulas";
-        locate(70, 13);
+        locate(x, y+2);
         cout << "0. Cerrar Sesion";
 
-        op = Opcion(15);
+        op = Opcion(x,y+4);
 
         switch(op) {
         case 1:
@@ -158,27 +177,32 @@ void Becado(Usuario obj) { //Ver aulas, ver comisiones y pedir cambios
             return;
             break;
         default:
-            Alerta(70, 17);
+            Alerta(x, y);
             break;
         }
     }
 }
 
 void Docente(Usuario obj) { //Ver aulas, info del departamento y ver las comisiones en las que da clases
-    int op;
+    int op, totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
+
     while(true) {
-        locate(70, 8);
+        locate(x+7, y-4);
         cout << "Bienvenido " << obj.getNombre();
-        locate(70, 10);
+        locate(x, y-2);
         cout << "1. Ver las Aulas";
-        locate(70, 11);
+        locate(x, y-1);
         cout << "2. Ver sus Comisiones";
-        locate(70, 12);
+        locate(x, y);
         cout << "3. Ver informacion del Departamento";
-        locate(70, 14);
+        locate(x, y+1);
         cout << "0. Cerrar Sesion";
 
-        op = Opcion(16);
+        op = Opcion(x,y+4);
 
         switch(op) {
         case 1:
@@ -195,31 +219,37 @@ void Docente(Usuario obj) { //Ver aulas, info del departamento y ver las comisio
             return;
             break;
         default:
-            Alerta(70, 18);
+            Alerta(x, y);
             break;
         }
     }
 }
 
 void Director(Usuario obj) { //Ver Aulas, ver comisiones, dar de alta y baja a becados
-    int op;
+    int op, totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-30)/2;
+    int y = totalY/2;
+
     while(true) {
-        locate(70, 8);
+        setColor(15);
+        locate(x, y-6);
         cout << "Bienvenido " << obj.getNombre();
-        locate(70, 10);
+        locate(x, y-4);
         cout << "1. Ver las Aulas";
-        locate(70, 11);
+        locate(x, y-3);
         cout << "2. Agregar a un Becado al Departamento";
-        locate(70, 12);
+        locate(x, y-2);
         cout << "3. Dar de Baja a un Becado del Departamento";
-        locate(70, 13);
+        locate(x, y-1);
         cout << "4. Ver las Comisiones del departamento";
-        locate(70, 14);
+        locate(x, y);
         cout << "5. Ver informacion del Departamento";
-        locate(70, 16);
+        locate(x, y+2);
         cout << "0. Cerrar Sesion";
 
-        op = Opcion(18);
+        op = Opcion(x, y+4);
 
         switch(op) {
         case 1:
@@ -242,12 +272,10 @@ void Director(Usuario obj) { //Ver Aulas, ver comisiones, dar de alta y baja a b
             return;
             break;
         default:
-            Alerta(70, 20);
+            Alerta(x, y);
             break;
         }
     }
-
-
 }
 
 void IngresoAdmin() {
@@ -255,13 +283,17 @@ void IngresoAdmin() {
     ArchAdm archA;
     char contrasenia[30];
     bool entro = false;
+    int totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
 
     system("cls");
-    locate(72, 4);
+    locate(x, y-3);
     cout << "Ingresando al SysadAulas";
-    locate(72, 6);
-    cout << "contrasenia: ";
-    locate(84, 6);
+    locate(x, y-1);
+    cout << "Contrasenia: ";
     cargarCadena(contrasenia, 29);
 
     int tam = archA.contarRegistros();
@@ -270,11 +302,10 @@ void IngresoAdmin() {
         if(strcmp(obj.getConstrasenia(), contrasenia) == 0) {
             entro = true;
             system("cls");
-            locate(70, 8);
+            locate(x+9, y-3);
             cout << "Hola " << obj.getNombre();
-            locate(70, 9);
+            locate(x-1, y-1);
             cout << "Yendo al menu de administrador ";
-            locate(70, 10);
             system("pause>nul");
             system("cls");
             Admin(obj);
@@ -283,35 +314,38 @@ void IngresoAdmin() {
 
     if(!entro) {
         setColor(4);
-        locate(72, 8);
-        cout << "Contrasena erronea";
-        locate(70, 9);
+        locate(x, y+1);
+        cout << "Contrasena erronea!";
         system("pause>nul");
-        locate(70, 10);
         setColor(15);
         system("cls");
     }
 
 }
 void Aulas(Administrador obj) {
-    setColor(15);
-    int opcion;
+    int opcion,totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
+
     system("cls");
     while(true) {
-        locate(70, 8);
+        setColor(15);
+        locate(x, y-6);
         cout << "Bienvenido al menu de Aulas";
-        locate(70, 10);
+        locate(x, y-4);
         cout << "1. Ver las Aulas";
-        locate(70, 11);
+        locate(x, y-3);
         cout << "2. Ver los cambios de Aulas";
-        locate(70, 12);
+        locate(x, y-2);
         cout << "3. Dar de baja a Aulas";
-        locate(70, 13);
+        locate(x, y-1);
         cout << "4. Dar de alta a Aulas";
-        locate(70, 15);
+        locate(x, y+1);
         cout << "0. Volver al menu anterior";
 
-        opcion = Opcion(17);
+        opcion = Opcion(x,y+3);
 
         switch(opcion) {
         case 1:
@@ -338,23 +372,28 @@ void Aulas(Administrador obj) {
 
 
 void Admin(Administrador obj) { //Ver comisiones, confirmar cambios, dar de alta, baja y ver aulas
-    int opcion;
-    setColor(15);
+    int opcion, totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-15)/2;
+    int y = totalY/2;
+
     while(true) {
-        locate(70, 8);
+        setColor(15);
+        locate(x, y-6);
         cout << "Bienvenido " << obj.getNombre();
-        locate(70, 10);
+        locate(x, y-4);
         cout << "1. Menu de aulas"; //Menu de aulas
-        locate(70, 11);
+        locate(x, y-3);
         cout << "2. Ver las Comisiones"; // Mostrar los numeros del departamento e ingresar el CodDep
-        locate(70, 12);
+        locate(x, y-2);
         cout << "3. Dar de baja a Usuarios";
-        locate(70, 13);
+        locate(x, y-1);
         cout << "4. Dar de alta a Usuarios";
-        locate(70, 15);
+        locate(x, y+1);
         cout << "0. Cerrar Sesion";
 
-        opcion = Opcion(17);
+        opcion = Opcion(x,y+3);
 
         switch(opcion) {
         case 1:
@@ -374,10 +413,11 @@ void Admin(Administrador obj) { //Ver comisiones, confirmar cambios, dar de alta
             system("cls");
             return;
         default:
-            Alerta(70, 19);
+            Alerta(x, y);
             break;
         }
     }
 }
+
 
 #endif // PAGINAS_MENUS_H_INCLUDED

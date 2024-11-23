@@ -1,7 +1,8 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
+#include "Funciones.h"
 
-void mostrarDepCompleto(int codigo, int x, int y), verAulas(), verComisiones(int CodDep), verComisiones(const char *nombre);
+void mostrarDepCompleto(int codigo, int x, int y), verAulas(), verComisiones(int CodDep), verComisiones(const char *nombre), terminalSize(int&,int&);
 void verInfoDep(int CodDep), PedirCambios(int CodDep);
 Departamento buscarDep(int Cod);
 
@@ -12,11 +13,15 @@ int verificarUsuario(int dni);
 void darAlta(const char *rol="Becado"), darBaja(int cod, int legajo, const char *rol);
 
 void ComisionesAdmin() {
-    int x = 70, y = 8, Dep;
+    int opcion, totalX, totalY,Dep;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-15)/2;
+    int y = totalY/2;
 
     system("cls");
 
-    locate(x, y);
+    locate(x, y-4);
     cout << "Ingrese el departamento para ver sus comisiones: ";
     cin >> Dep;
 
@@ -38,17 +43,13 @@ int verificarUsuario(int dni) {
 }
 
 void darAlta(int dni) {        //  Buscar por Dni
-    int x = 80, y = 8;
-
     system("cls");
 
-    locate(x, y);
+    locate(1, 1);
     cout << "Ingrese el Dni de la persona: ";
-    locate(30+x, y);
     cin >> dni;
 
     int verificacion = verificarUsuario(dni);
-    cout << verificacion;
 
     if(verificacion >= 0) {
         //Modificar estado y registro
@@ -59,29 +60,30 @@ void darAlta(int dni) {        //  Buscar por Dni
         obj.setEstado(true);
         arch.modificarRegistro(obj, verificacion);
         obj.Mostrar();
-        y += 3;
         setColor(1);
-        locate(x, 2+y);
         cout << obj.getNombre() << " " << obj.getApellido() << " Existe en el sistema y fue dado de Alta exitosamente";
-        setColor(0);
     } else {
         Alta_Usuarios(dni);
     }
-    locate(x, 4+y);
-    system("pause");
+    system("pause>nul");
     system("cls");
 }
 
 void darBaja() { //buscar por Legajo
-    int legajo, x = 70, y = 8;
+    int legajo, totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-30)/2;
+    int y = totalY/2;
+
     Usuario obj;
     ArchUsuario arch;
 
     system("cls");
 
-    locate(x, y);
+    locate(x, y-4);
     cout << "Ingrese el legajo de la persona: ";
-    locate(33+x, y);
+    locate(x, y-3);
     cin >> legajo;
 
     int tam = arch.contarRegistros();
@@ -91,7 +93,7 @@ void darBaja() { //buscar por Legajo
             obj.setEstado(false);
             arch.modificarRegistro(obj, i);
             setColor(1);
-            locate(x, 1+y);
+            locate(x, y);
             cout << "Dado de Baja Correctamente" << endl;
             setColor(0);
             system("pause");
@@ -100,25 +102,27 @@ void darBaja() { //buscar por Legajo
         }
     }
     setColor(4);
-    locate(x, 2+y);
+    locate(x, y);
     cout << "No se encontro el usuario" << endl;
-    setColor(0);
-    locate(x, 4+y);
-    system("pause");
+    system("pause>nul");
     system("cls");
 }
 
 
 void darBaja(int cod, const char *rol) { //buscar por Legajo
-    int legajo, x = 70, y = 8;
+    int legajo, totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-30)/2;
+    int y = totalY/2;
+
     Usuario obj;
     ArchUsuario arch;
 
     system("cls");
 
-    locate(x, y);
+    locate(x, y-4);
     cout << "Ingrese el legajo de la persona: ";
-    locate(33+x, y);
     cin >> legajo;
 
     int tam = arch.contarRegistros();
@@ -128,30 +132,30 @@ void darBaja(int cod, const char *rol) { //buscar por Legajo
             obj.setCodDep(0);
             arch.modificarRegistro(obj, i);
             setColor(1);
-            locate(x, 2+y);
+            locate(x, y-2);
             cout << "Eliminado del Departamento Correctamente";
-            setColor(0);
-            locate(x, 4+y);
-            system("pause");
+            system("pause>nul");
             system("cls");
             return;
         }
     }
     setColor(4);
-    locate(x, 2+y);
+    locate(x, y-1);
     cout << "No se encontro el becado"<< endl;
-    setColor(0);
-    locate(x, 4+y);
-    system("pause");
+    system("pause>nul");
     system("cls");
 }
 
 void darAlta(int CodDep,const char *rol) {        //  Buscar por Dni
-    int dni, x = 70, y = 8;
+    int dni, totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
 
     system("cls");
 
-    locate(x, y);
+    locate (1,1);
     cout << "Ingrese el Dni de la persona: ";
     cin >> dni;
     cout << endl;
@@ -160,17 +164,17 @@ void darAlta(int CodDep,const char *rol) {        //  Buscar por Dni
 
     if(verificacion >= 0) {
         //Modificar estado y registro
+        system("cls");
         Usuario obj;
         ArchUsuario arch;
 
         obj = arch.leerRegistro(verificacion);
         obj.setEstado(true);
         arch.modificarRegistro(obj, verificacion);
-        obj.Mostrar_Persona(x, y);
-        y += 5;
+        obj.Mostrar_Persona(x, y-3);
         setColor(1);
-        locate(x, 1+y);
-        cout << obj.getNombre() << " " << obj.getApellido() << "Existe en el sistema y fue dado de Alta exitosamente" << endl;
+        locate(x, y+1);
+        cout << obj.getNombre() << " " << obj.getApellido() << " existe en el sistema y fue dado de Alta exitosamente" << endl;
     } else {
         Alta_Usuarios(CodDep, dni, rol);
     }
@@ -198,6 +202,12 @@ Departamento buscarDep(int Cod) {
 void verInfoDep(int CodDep) {
     Departamento obj;
 
+    int totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-10)/2;
+    int y = totalY/2;
+
     system("cls");
     obj = buscarDep(CodDep);
     if(obj.getCodigo() == -1) {
@@ -205,7 +215,7 @@ void verInfoDep(int CodDep) {
         system("pause>nul");
         system("cls");
     } else {
-        obj.MostrarTodo(70, 8);
+        obj.MostrarTodo(x, y);
     }
 
 
@@ -220,10 +230,10 @@ void mostrarDepCompleto(int codigo, int x, int y) {
     int tam = arch.contarRegistros();
 
     setColor(1);
-    locate(x, 6);
+    locate(x, y-6);
     cout << "Informacion del Departamento";
     setColor(15);
-
+    y= y-2;
     for(int i=0; i<tam; i++) {
         obj = arch.leerRegistro(i);
         if(obj.getCodDep() == codigo) {
@@ -242,26 +252,29 @@ void mostrarDepCompleto(int codigo, int x, int y) {
             y++;
         }
     }
-    system("pause>nul");
-    system("cls");
 }
 
 void verAulas() {
+    int totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-30)/2;
+    int y = totalY/2;
+
     Aula obj;
     ArchAula archA;
 
     system("cls");
     int tam = archA.contarRegistros();
-    int x = 62, y = 8;
 
     setColor(1);
-    locate(82, 6);
+    locate(x+20, y-6);
     cout << "Aulas";
     setColor(15);
 
     for(int i=0; i<tam; i++) {
         obj = archA.leerRegistro(i);
-        obj.Mostrar_Peticion(x, y);
+        obj.Mostrar_Peticion(x, y-4);
         y++;
     }
     system("pause>nul");
@@ -272,13 +285,18 @@ void verComisiones(int CodDep) {
     Comision comi;
     ArchComision arch;
 
+    int totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-10)/2;
+    int y = totalY/2;
+
     system("cls");
     int tam = arch.contarRegistros();
-    int x = 70, y = 8;
     bool encontrado;
 
     setColor(1);
-    locate(79, 6);
+    locate(x, y-7);
     cout << "Comisiones";
     setColor(15);
 
@@ -286,16 +304,16 @@ void verComisiones(int CodDep) {
         comi = arch.leerRegistro(i);
         if(comi.getCodDep() == CodDep) {
             encontrado = true;
-            comi.Mostrar_Becado(x, y);
+            comi.Mostrar_Becado(x, y-5);
             y += 5;
         }
     }
     if(!encontrado) {
-        locate(x, y);
+        locate(x, y-4);
         setColor(4);
         cout << "Error, Codigo mal ingresado" << endl << endl;
-        setColor(0);
         y += 2;
+        setColor(15);
     }
     system("pause>nul");
     system("cls");
@@ -305,28 +323,32 @@ void verComisiones(const char *nombre) {
     Comision comi;
     ArchComision arch;
 
+    int totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-10)/2;
+    int y = totalY/2;
+
     system("cls");
     int tam = arch.contarRegistros();
-    int x = 70, y = 8;
 
     setColor(1);
-    locate(79, 6);
+    locate(x, y-7);
     cout << "Comisiones";
     setColor(15);
 
     for(int i=0; i<tam; i++) {
         comi = arch.leerRegistro(i);
         if(strcmp(comi.getProfe(), nombre)==0) {
-            comi.Mostrar_Docente(x, y);
+            comi.Mostrar_Docente(x, y-5);
             y += 5;
         }
     }
-    locate(x, y);
     system("pause>nul");
     system("cls");
 }
 
-Comision verficarComision(int CodDep, int CodComi) {
+Comision verificarComision(int CodDep, int CodComi) {
     Comision obj;
     ArchComision arch;
 
@@ -425,7 +447,7 @@ void mostrarComisiones(Comision *v, int tam) {
 void PedirCambios(int CodDep) {
     Comision *vComi;
     char op[3];
-    int codigo, x = 70, y = 6;
+    int codigo;
 
     system("cls");
 
@@ -442,7 +464,7 @@ void PedirCambios(int CodDep) {
 
     cout << endl <<"Ingrese la comision que quiera cambiar de aula: ";
     cin >> codigo;
-    Comision obj = verficarComision(CodDep, codigo);
+    Comision obj = verificarComision(CodDep, codigo);
 
     system("cls");
 
@@ -451,15 +473,17 @@ void PedirCambios(int CodDep) {
         delete []vComi;
         system("pause>nul");
         system("cls");
+        setColor(15);
         return;
     }
 
-    setColor(1);
+    setColor(15);
     cout <<"La comision elegida" << endl;
     obj.Mostrar_Becado();
+    setColor(1);
     cout << endl << "Desea continuar? (si/no): ";
     cargarCadena(op, 2);
-    if(strcmp(op, "no") == 0) {
+    if(!(strcmp(op, "si") == 0)) {
         setColor(4);
         cout << endl << "Saliendo al menu";
         setColor(15);
@@ -483,6 +507,7 @@ void PedirCambios(int CodDep) {
     Mostrar_Aulas(vAulas, aulasDisponibles);
 
     char aula[5];
+    setColor(1);
     cout << "Ingrese el aula: ";
     cargarCadena(aula, 4);
 
@@ -539,15 +564,20 @@ void Asignacion_Baja(const char *nombre) {
 
 void darBajaAulas() {
     char nombre[5];
-    int x = 70, y = 8;
+    int totalX, totalY;
+
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
+
     Aula obj;
     ArchAula arch;
 
     system("cls");
 
-    locate(x, y);
+    locate(x, y-4);
     cout << "Ingrese el nombre del aula: ";
-    locate(28+x, y);
+    locate(x, y-2);
     cargarCadena(nombre, 4);
 
     int tam = arch.contarRegistros();
@@ -559,14 +589,14 @@ void darBajaAulas() {
                 arch.modificarRegistro(obj, i);
                 Asignacion_Baja(obj.getNombre());
                 setColor(1);
-                locate(x, 2+y);
+                locate(x, y);
                 cout << "Aula dada de baja Correctamente";
                 system("pause>nul");
                 system("cls");
                 return;
             } else {
                 setColor(1);
-                locate(x, 2+y);
+                locate(x, y);
                 cout << "Ya fue dada de baja" << endl;
                 system("pause>nul");
                 system("cls");
@@ -575,7 +605,7 @@ void darBajaAulas() {
         }
     }
     setColor(4);
-    locate(x, 2+y);
+    locate(x, y);
     cout << "No se encontro el aula";
     system("pause>nul");
     system("cls");
@@ -672,19 +702,25 @@ void modificarArchPeticion(Peticion aux) {
 
 void verPeticiones() {
     system("cls");
-    int x = 70, y = 8;
+    int totalX, totalY;
 
-    locate(72, 6);
-    setColor(1);
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
+    locate(x, y-4);
+    setColor(15);
+
     cout << "Peticiones";
 
     int tam = contarPeticiones();
 
     if(tam == 0) {
-        locate(x, y);
+        locate(x, y-2);
+        setColor(2);
         cout << "No hay peticiones pendientes";
         system("pause>nul");
         system("cls");
+        setColor(15);
         return;
     }
 
@@ -703,13 +739,17 @@ void verPeticiones() {
         cargarCadena(op, 2);
         vPendientes[i].setRespuesta(op);
 
-        if(strcmp(op, "si") == 0) {
+        if(!(strcmp(op, "si") == 0)) {
+            setColor(4);
+            cout << "Peticion rechazada";
+        }else{
             cambiarAulas(vPendientes[i]);
+            cout << "Peticion aceptada";
         }
         vPendientes[i].setVisto(true);
         modificarArchPeticion(vPendientes[i]);
 
-        system("pause>nul");
+        setColor(15);
     }
 
     delete []vPendientes;
@@ -735,13 +775,16 @@ void Asignacion_Alta(const char *nombre) {
 
 void darAltaAulas() {
     char nombre[5];
-    int x = 70, y = 6;
+    int totalX, totalY;
 
+    terminalSize(totalX,totalY);
+    int x=(totalX-20)/2;
+    int y = totalY/2;
     system("cls");
 
-    locate(x, y);
+    locate(x, y-4);
     cout << "Ingrese el nombre del Aula: ";
-    locate(28+x, y);
+    locate(x, y-2);
     cargarCadena(nombre, 4);
     cout << endl;
 
@@ -755,20 +798,19 @@ void darAltaAulas() {
         obj.setEstado(true);
         arch.modificarRegistro(obj, verificacion);
         Asignacion_Alta(obj.getNombre());
-        locate(x, 2+y);
+        locate(x, y);
         setColor(1);
         cout << "El aula "<< obj.getNombre() << " Existe en el sistema y fue dado de Alta exitosamente";
-        setColor(0);
-        locate(x, 4+y);
     } else {
         char op[2];
-        locate(x, 2+y);
+        locate(x, y);
         cout << "No existe en el sistema";
-        locate(x, 4+y);
-        cout << "Desea cargar un aula nueva?";
-        locate(x, 6+y);
-        cargarCadena(op, 1);
-        if(strcpy(op, "si") == 0) {
+        locate(x, y+1);
+        cout << "Desea cargar un aula nueva?(si/no)";
+        locate(x, y+2);
+        cargarCadena(op, 2);
+        if(strcmp(op, "si") == 0) {
+            system("cls");
             Alta_Aulas(nombre);
         }
     }
@@ -776,6 +818,19 @@ void darAltaAulas() {
     system("cls");
 }
 
+void terminalSize(int &x, int &y) // Te devuelve el ancho y largo de la terminal a traves de los parametros
+{
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    int columns, rows;
 
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+    columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+    rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+
+    x= columns;
+    y=rows;
+
+    return;
+}
 
 #endif // FUNCIONES_H_INCLUDED

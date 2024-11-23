@@ -57,7 +57,7 @@ public:
             cout << "Codigo del Departamento: " << codDep << endl;
             cout << "Cantidad de alumnos: " << cantidad << endl;
             cout << "Docente a cargo: " << profe << endl;
-            cout << "Aula: " << aula << endl;
+            cout << "Aula: " << aula << endl<<endl;
         }
     }
     void Mostrar_Becado(int x = 0, int y = 0)
@@ -67,7 +67,7 @@ public:
             locate(x, y); cout << "Codigo de la Comision: " << codComi << endl;
             locate(x, 1+y); cout << "Cantidad de alumnos: " << cantidad << endl;
             locate(x, 2+y); cout << "Docente a cargo: " << profe << endl;
-            locate(x, 3+y); cout << "Aula: " << aula << endl;
+            locate(x, 3+y); cout << "Aula: " << aula << endl<<endl;
         }
     }
     void Mostrar_Docente(int x = 0, int y = 0)
@@ -77,7 +77,7 @@ public:
             locate(x, y); cout << "Codigo de la Comision: " << codComi << endl;
             locate(x, 1+y); cout << "Codigo del Departamento: " << codDep << endl;
             locate(x, 2+y); cout << "Cantidad de alumnos: " << cantidad << endl;
-            locate(x, 3+y); cout << "Aula: " << aula << endl;
+            locate(x, 3+y); cout << "Aula: " << aula << endl<<endl;
         }
     }
 };

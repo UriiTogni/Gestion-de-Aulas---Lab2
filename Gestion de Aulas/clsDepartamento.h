@@ -48,10 +48,13 @@ public:
     {
         if(estado)
         {
-            locate(x, y); cout << "El codigo del departamento: " << codigo << endl;
-            locate(x, 1+y); cout << "El nombre del departamento: " << nombre << endl;
-            y+= 2;
-            mostrarDepCompleto(codigo, x, y);
+            locate(x-10,y-4);
+            cout << "El codigo del departamento: " << codigo << endl;
+            locate(x-10,y-3);
+            cout << "El nombre del departamento: " << nombre << endl;
+            mostrarDepCompleto(codigo, x-10, y);
+            system("pause>nul");
+            system("cls");
         }
     }
 };
