@@ -6,7 +6,6 @@
 using namespace std;
 using namespace rlutil;
 
-#include "Declaraciones.h"
 #include "clsDias.h"
 #include "Cadena.h"
 #include "clsAula.h"

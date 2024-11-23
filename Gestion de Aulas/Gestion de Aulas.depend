@@ -61,3 +61,62 @@
 
 1731960457 c:\users\gerar\documents\codeblocks\gestion de aulas\clspeticion.h
 
+1732305858 source:c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\clsaula.cpp
+
+1732305858 source:c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\main.cpp
+	<iostream>
+	"rlutil.h"
+	<cstring>
+	<ctime>
+	"Declaraciones.h"
+	"clsDias.h"
+	"Cadena.h"
+	"clsAula.h"
+	"clsPersona.h"
+	"clsUsuario.h"
+	"clsAdministrador.h"
+	"clsComision.h"
+	"clsDepartamento.h"
+	"clsPeticion.h"
+	"Funciones.h"
+	"Paginas_Menus.h"
+
+1732305858 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1732305858 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\declaraciones.h
+
+1732305858 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\clsdias.h
+
+1732305858 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\cadena.h
+
+1732330286 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\clsaula.h
+
+1732305858 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\clspersona.h
+
+1732331040 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\clsusuario.h
+
+1732305858 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\clsadministrador.h
+
+1732327030 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\clscomision.h
+
+1732326690 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\clsdepartamento.h
+
+1732330296 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\clspeticion.h
+
+1732330960 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\funciones.h
+	"Funciones.h"
+
+1732328665 c:\users\nehue\onedrive\documentos\utn\lab de computacion 2\gestion-de-aulas---lab2\gestion de aulas\paginas_menus.h
+
