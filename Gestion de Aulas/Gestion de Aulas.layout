@@ -2,14 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="clsComision.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Cadena.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="623" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Funciones.h" open="1" top="1" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="16283" topLine="680" />
+			<Cursor1 position="56" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="rlutil.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -17,64 +12,118 @@
 			<Cursor1 position="22156" topLine="722" />
 		</Cursor>
 	</File>
+	<File name="clsPersona.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="608" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="clsDepartamento.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1268" topLine="75" />
+		</Cursor>
+	</File>
+	<File name="Paginas_Menus.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9016" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="7" />
+			<Collapse line="44" />
+			<Collapse line="100" />
+			<Collapse line="124" />
+			<Collapse line="133" />
+			<Collapse line="143" />
+			<Collapse line="185" />
+			<Collapse line="227" />
+			<Collapse line="280" />
+			<Collapse line="324" />
+			<Collapse line="373" />
+			<Collapse line="397" />
+		</Folding>
+	</File>
+	<File name="Funciones.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="19561" topLine="55" />
+		</Cursor>
+		<Folding>
+			<Collapse line="14" />
+			<Collapse line="30" />
+			<Collapse line="44" />
+			<Collapse line="71" />
+			<Collapse line="111" />
+			<Collapse line="148" />
+			<Collapse line="185" />
+			<Collapse line="201" />
+			<Collapse line="223" />
+			<Collapse line="256" />
+			<Collapse line="283" />
+			<Collapse line="321" />
+			<Collapse line="350" />
+			<Collapse line="365" />
+			<Collapse line="379" />
+			<Collapse line="390" />
+			<Collapse line="404" />
+			<Collapse line="410" />
+			<Collapse line="424" />
+			<Collapse line="439" />
+			<Collapse line="446" />
+			<Collapse line="534" />
+			<Collapse line="549" />
+			<Collapse line="564" />
+			<Collapse line="614" />
+			<Collapse line="628" />
+			<Collapse line="642" />
+			<Collapse line="656" />
+			<Collapse line="687" />
+			<Collapse line="702" />
+			<Collapse line="760" />
+			<Collapse line="775" />
+			<Collapse line="821" />
+		</Folding>
+	</File>
+	<File name="clsUsuario.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1666" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="clsDias.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="767" topLine="16" />
+		</Cursor>
+	</File>
+	<File name="clsPeticion.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4472" topLine="60" />
+		</Cursor>
+	</File>
 	<File name="clsAula.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="clsUsuario.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1457" topLine="10" />
-		</Cursor>
-	</File>
-	<File name="clsPeticion.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2007" topLine="41" />
-		</Cursor>
-	</File>
-	<File name="Cadena.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="56" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="clsPersona.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1105" topLine="21" />
-		</Cursor>
-	</File>
-	<File name="clsAdministrador.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3543" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="clsDepartamento.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1490" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="clsAula.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2377" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Paginas_Menus.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8098" topLine="332" />
-		</Cursor>
-	</File>
-	<File name="Declaraciones.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Declaraciones.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="118" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="clsDias.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="clsAula.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="767" topLine="0" />
+			<Cursor1 position="2377" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="clsComision.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="562" topLine="10" />
+			<Cursor1 position="623" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="clsAdministrador.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="97" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="562" topLine="5" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
